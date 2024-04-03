@@ -175,5 +175,22 @@ body{
 }
 
 #calendar2>table td{
-  vertical-align: middle
+  vertical-align: middle;
+
+  position: relative;
+}
+
+#calendar2>table td.today::after{
+  content: "";
+
+  position: absolute;
+  top: calc(50% - 1.5rem);
+  left: calc(50% - 1.5rem);
+  z-index: -1;
+
+  height: 3rem;
+  width: 3rem;
+
+  border-radius: 50%;
+  background-color: var(--span1);
 }
