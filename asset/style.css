@@ -6,7 +6,7 @@
   --span2: #efefef;
   --text: #0f0f0f;
 
-  --circle: 34rem;
+  --circle: 32rem;
 }
 
 html{
@@ -42,11 +42,13 @@ body{
   padding: 0;
 }
 
-#clockContainer>span{
+#clockContainer>#span1{
+  content: "";
+  
   position: absolute;
   left: calc((100% - var(--circle)) / 2);
   top: calc((100% - var(--circle)) / 2);
-  z-index: -2;
+  z-index: -3;
 
   display: block;
   width: var(--circle);
@@ -55,17 +57,33 @@ body{
   border-radius: 50%;
 }
 
-#clockContainer>span::after{
+#clockContainer>#span2{
   content: "";
 
   position: absolute;
   left: calc((100% - calc(var(--circle) - 2rem)) / 2);
   top: calc((100% - calc(var(--circle) - 2rem)) / 2);
-  z-index: -1;
+  z-index: -2;
 
   display: block;
   width: calc(var(--circle) - 2rem);
   height: calc(var(--circle) - 2rem);
+
+  border-radius: 50%;
+  background: var(--span2);
+}
+
+#clockContainer>#span3{
+  content: "";
+
+  position: absolute;
+  left: calc((100% - calc(var(--circle) - 4rem)) / 2);
+  top: calc((100% - calc(var(--circle) - 4rem)) / 2);
+  z-index: -1;
+
+  display: block;
+  width: calc(var(--circle) - 4rem);
+  height: calc(var(--circle) - 4rem);
 
   border-radius: 50%;
   background: var(--span2);
@@ -80,7 +98,7 @@ body{
   padding: 0;
 
   color: var(--text);
-  font-size: 14rem;
+  font-size: 10rem;
   font-family: "Saira Condensed", sans-serif;
   font-weight: 100;
   letter-spacing: 1px;
@@ -154,7 +172,7 @@ body{
 
 #date{
   font-family: "Saira Condensed", sans-serif;
-  font-size: 19rem;
+  font-size: 17rem;
 }
 
 #calendar2>table{

@@ -11,11 +11,14 @@ function updateTime(){
   document.getElementById("date").textContent = now.getDate();
 
   const second = now.getSeconds();
+  const minute = now.getMinutes();
   const millSecond = now.getMilliseconds();
 
-  var deg = Number(second * 6) + Number(millSecond * 360 / 60 / 1000);
+  var secondDeg = Number(second * 360 / 60) + Number(millSecond * 360 / 60 / 1000);
+  var minuteDeg = Number(minute * 360 / 60) + Number(second * 360 / 60 / 60) + Number(millSecond * 360 / 60 / 60 / 1000);
 
-  $("#clockContainer>span").css("background", "conic-gradient(var(--span1) " + deg + "deg, var(--span2) " + deg + "deg 360deg)");
+  $("#span1").css("background", "conic-gradient(var(--span1) " + secondDeg + "deg, var(--span2) " + secondDeg + "deg 360deg)");
+  $("#span2").css("background", "conic-gradient(var(--span1) " + minuteDeg + "deg, var(--span2) " + minuteDeg + "deg 360deg)");
 
   // 朝7時以前もしくは夜19時以降はナイトモードをオン
   if(now.getHours() <= 7 || now.getHours() >= 19){
