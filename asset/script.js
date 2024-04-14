@@ -16,7 +16,7 @@ function updateTime(){
   const minute = now.getMinutes();
   const millSecond = now.getMilliseconds();
 
-  if(second == 50 && minute == 15){
+  if(second == 0 && minute == 0 && millSecond == 0){
     console.log("music");
     music.play();
   }
