@@ -1,6 +1,8 @@
 const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
+const music = document.querySelector("audio");
+
 function updateTime(){
   // 日付オブジェクトを取得
   const now = new Date();
@@ -13,6 +15,13 @@ function updateTime(){
   const second = now.getSeconds();
   const minute = now.getMinutes();
   const millSecond = now.getMilliseconds();
+
+  if(second == 0 && minute == 0){
+    music.play();
+  }
+  else{
+    music.pause();
+  }
 
   var secondDeg = Number(second * 360 / 60) + Number(millSecond * 360 / 60 / 1000);
   var minuteDeg = Number(minute * 360 / 60) + Number(second * 360 / 60 / 60) + Number(millSecond * 360 / 60 / 60 / 1000);
